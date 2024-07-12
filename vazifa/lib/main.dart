@@ -1,6 +1,5 @@
-import 'package:dars_15/cubits/todo/todo_cubit.dart';
-import 'package:dars_15/examples/counter/counter_cubit.dart';
-import 'package:dars_15/ui/screens/todo_screen.dart';
+import 'package:dars_15/cubits/todo/product_cubit.dart';
+import 'package:dars_15/ui/screens/products_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -16,15 +15,14 @@ class MainApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) {
-          return CounterCubit();
-        }),
-        BlocProvider(create: (context) {
-          return TodoCubit();
+          return ProductCubit();
         }),
       ],
-      child: const MaterialApp(
+      child: MaterialApp(
+        darkTheme: ThemeData.dark(),
+        theme: ThemeData.light(),
         debugShowCheckedModeBanner: false,
-        home: TodoScreen(),
+        home: const ProductsScreen(),
       ),
     );
   }
